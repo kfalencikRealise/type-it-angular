@@ -1,0 +1,4 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<app-game-start-dialog *ngIf="gameStart" (onSetDifficulty)="setDifficulty($event)"></app-game-start-dialog>
+<app-game-board *ngIf="gamePlay" [dictionary]="dictionary" [difficulty]="difficulty" [dictionarySize]="dictionarySize" (onSetGameOver)="setGameOver($event)"></app-game-board>
+<app-game-over-dialog *ngIf="gameOver" [score]="score"></app-game-over-dialog>

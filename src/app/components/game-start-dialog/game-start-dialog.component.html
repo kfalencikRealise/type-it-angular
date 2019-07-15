@@ -1,0 +1,11 @@
+<div id="dialog-start" class="site-dialog">
+  <header class="dialog-header">
+    <img src="assets/logo.png" alt="logo" />
+  </header>
+  <div class="dialog-content">
+    <p>The objective of the game is to type in the word shown as quickly as possible but look out as the time is ticking and every misspelled word results in a time penalty.</p>
+    <button (click)="setDifficulty('easy')" class="difficulty-btn btn btn-block">Undemanding</button>
+    <button (click)="setDifficulty('average')" class="difficulty-btn btn btn-block btn-orange">Strenuous</button>
+    <button (click)="setDifficulty('insane')" class="difficulty-btn btn btn-block btn-red">Merciless</button>
+  </div>
+</div>

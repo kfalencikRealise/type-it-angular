@@ -1,0 +1,29 @@
+<div id="gameboard">
+    <div class="game-word">
+      <div class="current-word">
+        {{ currentWord }}
+      </div>
+    </div>
+    <div class="game-stats">
+      <div [ngClass]="{'stat': true, 'frozen': superPowerFreeze}"><span class="timer">{{ timer }}</span> seconds</div>
+      <div class="stat"><span class="score">{{ score }}</span></div>
+      <div class="stat"><span class="words">{{ wordCount }}</span></div>
+    </div>
+    <div class="game-messages">
+      <div *ngIf="message !== ''" [ngClass]="{'message':true, 'good': messageClass === 'good', 'bad': messageClass === 'bad'}" [innerHTML]="message"></div>
+    </div>
+    <div *ngIf="explosion" class="game-effects">
+      <div *ngFor="let star of [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]; let i = index" class="particle"></div>
+    </div>
+    <div class="game-stars">
+      <div *ngFor="let star of streakStars; let i = index" class="streak-star"></div>
+    </div>
+    <div class="game-typing">
+      <div class="text-input" *ngFor="let letter of currentWordArray; let i = index">
+        <input type="text" [ngClass]="{'good': currentCharacter > i}" value="{{currentWordLetters[i]}}"/>
+      </div>
+    </div>
+    <div class="game-word-description">
+      <div class="current-word-desc">{{ currentDesc }}</div>
+    </div>
+  </div>

@@ -1,0 +1,200 @@
+#gameboard{
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 80%;
+
+  .current-word{
+    font-family: Pangolin, sans-serif;
+    font-size: 32px;
+    text-align: center;
+    background: url('/assets/top-board.png') no-repeat top;
+    margin-bottom: 50px;
+    height: 105px;
+    color: #61290d;
+    line-height: 120px;
+  }
+
+  .game-word-description{
+    background: url('/assets/word-description.png');
+    max-width: 700px;
+    min-height: 125px;
+    padding: 20px 60px;
+    font-weight: bold;
+    background-size: 100%;
+    color: #61290d;
+    text-align: center;
+    margin: 100px auto;
+  }
+
+  .game-messages{
+    text-align: center;
+    position: absolute;
+    top: 50px;
+    right: 100px;
+
+    .message{
+      font-weight: bold;
+      color: #045404;
+      width: 200px;
+      height: 85px;
+      line-height: 85px;
+      text-align: center;
+      background: url('/assets/message-good.png');
+      background-size: 100%;
+    }
+
+    .message.bad{
+      color: #000;
+      background: url('/assets/message-bad.png');
+      background-size: 100%;
+    }
+
+    .message.game-over{
+      color: #000;
+      line-height: 125px;
+      width: 300px;
+      height: 125px;
+      background: url('/assets/message-game-over.png');
+      background-size: 100%;
+    }
+  }
+
+  .game-typing{
+    text-align: center;
+    margin: 75px auto 0;
+  }
+  .text-input{
+    display: inline-block;
+  }
+  .text-input input{
+    display: inline-block;
+    background: url('/assets/input-empty.png');
+    background-size: 100%;
+    width: 50px;
+    border-radius: 100%;
+    color: #fff;
+    height: 48px;
+    border: none;
+    font-size: 26px;
+    font-family: Pangolin, sans-serif;
+    text-align: center;
+    margin: 0 5px;
+    text-transform: uppercase;
+  }
+  .text-input input.good{
+    background: url('/assets/input-good.png');
+    background-size: 100%;
+  }
+  .text-input input.bad{
+    background: url('/assets/input-bad.png');
+    background-size: 100%;
+  }
+
+  .game-stars{
+    text-align: center;
+    height: 50px;
+    width: 500px;
+    margin: 0 auto;
+  }
+  .game-stars .streak-star{
+    display: inline-block;
+    background: url('/assets/streak-star.png') no-repeat;
+    width: 50px;
+    height: 50px;
+    background-size: 100%;
+  }
+
+  .game-instruction{
+    font-size: 32px;
+  }
+
+  .superpower{
+    font-weight: bold;
+    font-size: 18px;
+    width: 365px;
+    height: 75px;
+    background-size: 100%;
+    color: #fff;
+    line-height: 100px;
+    margin-left: -180px;
+    position: absolute;
+    display: inline-block;
+    background: url('/assets/superpower.png') no-repeat center top;
+    animation: fadein 1s 1;
+  }
+
+  @keyframes fadein{
+    0%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
+    }
+  }
+
+  .game-stats{
+    position: absolute;
+    top: 50px;
+    left: 100px;
+  }
+  .game-stats .stat{
+    height: 80px;
+    width: 150px;
+    color: #61290d;
+    font-weight: bold;
+    font-size: 22px;
+    padding-left: 105px;
+    line-height: 76px;
+    margin-bottom: 25px;
+    transition: .5s;
+  }
+
+  .game-stats .stat:nth-child(1){
+    background: url('/assets/timer.png') no-repeat;
+  }
+  .game-stats .stat.frozen:nth-child(1){
+    background: url('/assets/timer-frost.png') no-repeat;
+  }
+  .game-stats .stat:nth-child(2){
+    background: url('/assets/points.png') no-repeat;
+  }
+  .game-stats .stat:nth-child(3){
+    background: url('/assets/word-count.png') no-repeat;
+  }
+
+  .game-effects{
+    position: relative;
+    width: 200px;
+    margin: 0 auto;
+  }
+
+  .particle {
+    position: absolute;
+    width: 35px;
+    background: url('/assets/streak-star.png') no-repeat;
+    background-size: 100%;
+    height: 35px;
+    border-radius: 50%;
+    opacity: 0;
+  }
+
+  @for $i from 1 to 20 {
+      .particle:nth-child(#{$i}) {
+        animation: pop .5s reverse forwards;
+        animation-delay: $i * 0.02s;
+        left: random(100) + px;
+        top: random(200) + px;
+      }
+    }
+
+  @keyframes pop {
+    from {
+      opacity: 0;
+    }
+    to {
+      top: random(400) / 100 * 100%;
+      left: random(100) / 100 * 100%;
+      opacity: .75;
+    }
+  }
+}
