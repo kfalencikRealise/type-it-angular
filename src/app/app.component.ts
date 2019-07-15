@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import dictionary from '../assets/dictionary.json';
+import dictionary from '../dictionary.json';
 
 
 @Component({
